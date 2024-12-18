@@ -12,9 +12,9 @@ maps[0] = map;
 for (var i = 0; i < bytesCoordinates.Length; i++)
 {
    maps[i + 1] = new int[maps[i].GetLength(0), maps[i].GetLength(1)];
-   for (int x = 0; x < maps[i].GetLength(0); x++)
+   for (var x = 0; x < maps[i].GetLength(0); x++)
    {
-      for (int y = 0; y < maps[i].GetLength(1); y++)
+      for (var y = 0; y < maps[i].GetLength(1); y++)
       {
          maps[i + 1][x, y] = maps[i][x, y];
       }
@@ -24,7 +24,7 @@ for (var i = 0; i < bytesCoordinates.Length; i++)
 
 Console.WriteLine($"First part: {FindShortestPath(maps[1024])}");
 
-var left = 1025;
+var left = 1025; // From the first part we know that first kb will not block path to the exit so we can skip them
 var right = bytesCoordinates.Length - 1;
 while (left < right)
 {
